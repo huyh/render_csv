@@ -12,7 +12,7 @@ module RenderCsv
       return join(',') unless first.class.respond_to? :column_names
 
       columns = first.class.column_names
-      columns &= options[:only].map(&:to_s) if options[:only]
+      columns = options[:only].map(&:to_s) if options[:only]
       columns -= options[:except].map(&:to_s) if options[:except]
       columns += options[:add_methods].map(&:to_s) if options[:add_methods]
 
